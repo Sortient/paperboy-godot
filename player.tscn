@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkx45n1qknsjm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_s824u"]
+[ext_resource type="PackedScene" uid="uid://dgckahupkdx3n" path="res://Assets/bikered.blend" id="2_rhowg"]
+[ext_resource type="AudioStream" uid="uid://c0qmfno0h2c0p" path="res://Assets/Sounds/PaperBoy.ogg" id="3_d5504"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hpr2j"]
+size = Vector3(0.821716, 1.52344, 3.08234)
+
+[sub_resource type="SystemFont" id="SystemFont_jsqtj"]
+font_names = PackedStringArray("Times New Roman")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3qh2o"]
+font = SubResource("SystemFont_jsqtj")
+font_size = 55
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227171, 0)
+script = ExtResource("1_s824u")
+
+[node name="bikered" parent="." instance=ExtResource("2_rhowg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.867445, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014801, 0.605727, 0.00723267)
+shape = SubResource("BoxShape3D_hpr2j")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.985447, -0.0786697, 0.150686, 0, 0.886462, 0.462801, -0.169986, -0.456066, 0.873561, 0, 9.03178, 10.0063)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.959629, -0.130172, 0.249335, 0.130172, 0.991353, 0.0165625, -0.249335, 0.0165625, 0.968276, 10.1323, 1.01845, 15.8925)
+projection = 1
+size = 15.0
+
+[node name="NewspapersLabel" type="Label" parent="."]
+offset_right = 1145.0
+offset_bottom = 638.0
+text = "Newspapers left: 10
+"
+label_settings = SubResource("LabelSettings_3qh2o")
+vertical_alignment = 2
+
+[node name="MainMusicAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d5504")

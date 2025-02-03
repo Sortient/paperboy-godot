@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kom41tjkeps"
+path="res://.godot/imported/GarageDoor01_house4.obj-1dfccb76b9f3e7a1f22863e7f34b975d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/GarageDoor01_house4.obj-1dfccb76b9f3e7a1f22863e7f34b975d.mesh"]
+
+source_file="res://Assets/Modular_HousesPack/House_04/OBJ/GarageDoor01_house4.obj"
+dest_files=["res://.godot/imported/GarageDoor01_house4.obj-1dfccb76b9f3e7a1f22863e7f34b975d.mesh", "res://.godot/imported/GarageDoor01_house4.obj-1dfccb76b9f3e7a1f22863e7f34b975d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

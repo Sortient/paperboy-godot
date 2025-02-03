@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://crtp2y23qhhx2"]
+
+[ext_resource type="Script" path="res://Scenes/newspaper.gd" id="1_fu15h"]
+[ext_resource type="AudioStream" uid="uid://b7lfc2meihwpp" path="res://Assets/Sounds/crash.mp3" id="2_lmynn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0k7y"]
+albedo_color = Color(0.999999, 0.998439, 0.79753, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0vvne"]
+material = SubResource("StandardMaterial3D_q0k7y")
+size = Vector3(0.4, 0.03, 0.15)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mo2u0"]
+points = PackedVector3Array(0.203175, 0.0199206, 0.0805556, -0.203175, -0.0181746, -0.0781746, -0.203175, 0.0199206, -0.0781746, 0.203175, -0.0181746, -0.0781746, -0.203175, -0.0181746, 0.0805556, -0.203175, 0.0199206, 0.0805556, 0.203175, 0.0199206, -0.0781746, 0.203175, -0.0181746, 0.0805556)
+
+[node name="Newspaper" type="RigidBody3D"]
+mass = 0.3
+script = ExtResource("1_fu15h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0vvne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_mo2u0")
+
+[node name="WindowSmashAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lmynn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

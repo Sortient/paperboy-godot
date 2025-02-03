@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btkykbp2bbcm4"
+path="res://.godot/imported/Pipe01_house4.obj-eb7e4fdba4009483e4c45b80097984dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pipe01_house4.obj-eb7e4fdba4009483e4c45b80097984dd.mesh"]
+
+source_file="res://Assets/Modular_HousesPack/House_04/OBJ/Pipe01_house4.obj"
+dest_files=["res://.godot/imported/Pipe01_house4.obj-eb7e4fdba4009483e4c45b80097984dd.mesh", "res://.godot/imported/Pipe01_house4.obj-eb7e4fdba4009483e4c45b80097984dd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

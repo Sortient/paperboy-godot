@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4fkuxv4gfiid"
+path="res://.godot/imported/ArcWall01_house_01.obj-237c4e64a870c4fb0948de9b4956c263.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ArcWall01_house_01.obj-237c4e64a870c4fb0948de9b4956c263.mesh"]
+
+source_file="res://Assets/Modular_HousesPack/House_01/OBJ/ArcWall01_house_01.obj"
+dest_files=["res://.godot/imported/ArcWall01_house_01.obj-237c4e64a870c4fb0948de9b4956c263.mesh", "res://.godot/imported/ArcWall01_house_01.obj-237c4e64a870c4fb0948de9b4956c263.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

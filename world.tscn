@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://1x4tatr2i4y5"]
+
+[ext_resource type="PackedScene" uid="uid://dkx45n1qknsjm" path="res://player.tscn" id="1_wyucm"]
+[ext_resource type="PackedScene" uid="uid://byu56angkf0mx" path="res://Scenes/House01.tscn" id="2_dg4uc"]
+[ext_resource type="ArrayMesh" uid="uid://b45eyvxyywsjw" path="res://Assets/Modular_HousesPack/House_03/OBJ/House_03.obj" id="3_3078f"]
+[ext_resource type="ArrayMesh" uid="uid://cdkdr53u5yghp" path="res://Assets/Modular_HousesPack/House_02/OBJ/House_02.obj" id="4_2a1in"]
+[ext_resource type="ArrayMesh" uid="uid://cl3mlpxl0w4ur" path="res://Assets/Modular_HousesPack/House_05/OBJ/House_05.obj" id="5_gb51s"]
+[ext_resource type="ArrayMesh" uid="uid://de3xsv3xqaacy" path="res://Assets/Modular_HousesPack/House_01/OBJ/House_01.obj" id="6_vteav"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mh5no"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_f5brt"]
+sky_material = SubResource("ProceduralSkyMaterial_mh5no")
+
+[sub_resource type="Environment" id="Environment_rr8md"]
+background_mode = 2
+sky = SubResource("Sky_f5brt")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfe04"]
+albedo_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vdy2i"]
+size = Vector2(70, 400)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l0ob1"]
+data = PackedVector3Array(15, 0, 200, -15, 0, 200, 15, 0, -200, -15, 0, 200, -15, 0, -200, 15, 0, -200)
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rr8md")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.6723)
+material_override = SubResource("StandardMaterial3D_mfe04")
+mesh = SubResource("PlaneMesh_vdy2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l0ob1")
+
+[node name="Player" parent="." instance=ExtResource("1_wyucm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.27398, 0.320045, 73.9867)
+
+[node name="Node3D" parent="." instance=ExtResource("2_dg4uc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.3128, 0, 20)
+
+[node name="Node3D2" parent="." instance=ExtResource("2_dg4uc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.3128, 0, 2.69996)
+
+[node name="Node3D7" parent="." instance=ExtResource("2_dg4uc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.3128, 0, -99.6776)
+
+[node name="Node3D8" parent="." instance=ExtResource("2_dg4uc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.3128, 0, -122.424)
+
+[node name="House03" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0404, 3.8147e-06, -15.8787)
+mesh = ExtResource("3_3078f")
+
+[node name="House02" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.565, 4.47595, -34.4263)
+mesh = ExtResource("4_2a1in")
+
+[node name="House05" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.116, 0, -56.828)
+mesh = ExtResource("5_gb51s")
+
+[node name="House01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2163, 5.64037, -77.6995)
+mesh = ExtResource("6_vteav")
+
+[node name="House04" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0404, 3.8147e-06, -143.283)
+mesh = ExtResource("3_3078f")
+
+[node name="House06" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.565, 4.47595, -161.83)
+mesh = ExtResource("4_2a1in")
+
+[node name="House07" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.116, 0, -184.232)
+mesh = ExtResource("5_gb51s")
+
+[node name="House08" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2163, 5.64037, -205.104)
+mesh = ExtResource("6_vteav")
