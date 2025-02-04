@@ -22,7 +22,7 @@ script = ExtResource("1_g4g8d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49604, 0)
 mesh = ExtResource("1_ct7po")
 
-[node name="Door" type="Area3D" parent="House" groups=["Door"]]
+[node name="Door" type="Area3D" parent="House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.31467, 0)
 collision_layer = 2
 

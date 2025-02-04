@@ -15,10 +15,10 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[global_group]
+[autoload]
 
-Window=""
-Door=""
+ScoreManager="*res://ScoreManager.gd"
+SoundManager="*res://SoundManager.gd"
 
 [input]
 
