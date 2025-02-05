@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 ScoreManager="*res://ScoreManager.gd"
 SoundManager="*res://SoundManager.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 accelerate={
