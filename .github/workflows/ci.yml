@@ -11,21 +11,33 @@ jobs:
       matrix:
         platform: [linux, windows, mac]
     steps:
-      - uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Install Export Templates
-        run: |
-          godot --install-templates
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.5.0
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+        - name: Checkout
+          uses: actions/checkout@v4
+  
+        - name: Setup Godot
+          uses: chickensoft-games/setup-godot@v2
+          with:
+            version: ${{ env.GODOT_VERSION }}
+            use-dotnet: false
+            include-templates: true
+  
+        - name: Initial Godot Import
+          shell: bash
+          run: |
+            godot --headless --import || exit 0
+
+        - name: Export Godot Project
+          shell: bash
+          run: >
+            godot
+            --headless
+            ${{ matrix.export-args }}
+            --export-${{ matrix.export-type }} "${{ matrix.export-preset }}"
+
+        - name: Upload Artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ matrix.archive }}-Artifacts
+            path: |
+              ${{ matrix.export-folder }}/*.*
+              !**/.gitignore
