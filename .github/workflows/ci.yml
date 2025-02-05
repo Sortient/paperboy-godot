@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Godot
+      uses: firebelley/setup-godot@v2
+      with:
+        godot_version: '4.3' 
+
+    - name: Run Unit Tests
+      run: |
+        godot --path . --headless --exit-code --test
