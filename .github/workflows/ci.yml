@@ -19,8 +19,8 @@ jobs:
 
         - name: Initial Godot Import
           shell: bash
-          run: |
-            godot4.3 --headless --import || exit 0
+          run: >
+            godot --headless --import || exit 0
   
         - name: Setup Godot
           uses: chickensoft-games/setup-godot@v2
