@@ -17,25 +17,13 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
 
-        - name: Setup Godot
-          uses: chickensoft-games/setup-godot@v2
+        - name: Build
+          id: build
+          uses: manleydev/build-godot-action@v1.4.1
           with:
-            version: ${{ env.GODOT_VERSION }}
-            use-dotnet: false
-            include-templates: true
-
-        - name: Initial Godot Import
-          shell: bash
-          run: >
-            godot --headless --import --quit || exit 0
-
-        - name: Export Godot Project
-          shell: bash
-          run: >
-            godot
-            --headless
-            ${{ matrix.export-args }}
-            --export-${{ matrix.export-type }} "${{ matrix.export-preset }}"
+            name: example
+            preset: ${{ matrix.platform }}
+            debugMode: "true"
 
         - name: Upload Artifacts
           uses: actions/upload-artifact@v4
